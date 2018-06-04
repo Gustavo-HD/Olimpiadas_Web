@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="./css/bootstrap.min.css" />
 
-<title>Sistema Olimpiadas.</title>
+<title>Olimpiadas</title>
 </head>
 <body>
 	<!-- Import do Menu. -->
@@ -22,7 +22,7 @@
 					<h1>Cadastro de Informações de Países</h1>
 				</div>
 			</div>
-			<form class="form-horizontal" action="paises" method="POST">
+			<form class="form-horizontal" action="olimpiadaController" method="POST">
 				<input type="hidden" id="id" name="id" value="${ pais.id }" />
 				<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
 					<div class="well well-lg">
@@ -45,7 +45,7 @@
 						
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-success" name="acao" value="Gravar">Gravar País</button>
+								<button type="submit" class="btn btn-success" name="command" value="PaisGravar">Gravar País</button>
 								<button type="button" class="btn btn-primary" onclick="backPage()">Voltar</button>
 							</div>
 						</div>

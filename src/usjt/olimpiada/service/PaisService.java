@@ -1,6 +1,5 @@
 package usjt.olimpiada.service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import usjt.olimpiada.dao.PaisDAO;
@@ -26,7 +25,19 @@ public class PaisService {
 		return paisDAO.carregar(idPais);
 	}
 	
-	public ArrayList<Pais> buscaPaises() throws IOException {
+	public ArrayList<Pais> buscaPaises() {
 		return paisDAO.buscaPaises();
+	}
+	
+	public Pais paisMaiorPopulacao() {
+		return paisDAO.paisMaiorPopulacao();
+	}
+	
+	public Pais paisMenorArea() {
+		return paisDAO.paisMenorArea();
+	}
+	
+	public ArrayList<Pais> retornaTresPaises() {
+		return paisDAO.retornaTresPaises();
 	}
 }

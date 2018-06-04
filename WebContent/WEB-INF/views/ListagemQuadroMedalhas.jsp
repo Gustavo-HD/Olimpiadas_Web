@@ -15,12 +15,12 @@
 	<!-- Import do Menu. -->
 	<c:import url="Menu.jsp" />
 
-	<section class="tabela-paises">
+	<section class="tabela-modalidades">
 		<div class="container">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3>
-						<span class="glyphicon glyphicon-globe"></span> Países
+						<span class="glyphicon glyphicon-star"></span> Quadro de Medalhas
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -28,14 +28,14 @@
 						<p>
 							<div class="alert alert-info" role="alert">
 								<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-								Lista de países cadastrados no sistema
+								Quadro de Medalhas de Países cadastrados.
 							</div>
 						</p>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<br />
 						<div>
-							<a href="olimpiadaController?command=PaisNovo" type="button" class="btn btn-success" >Cadastrar Novo País</a>
+							<a href="olimpiadaController?command=MedalhaNovo" type="button" class="btn btn-success" >Cadastrar Quadro</a>
 						</div>
 					</div>
 				</div>
@@ -44,24 +44,34 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>#</th>
-							<th>Nome</th>
-							<th>População</th>
-							<th>Área</th>
+							<th>País</th>
+							<th>Ano</th>
+							<th>Tipo</th>
+							<th>Ouro</th>
+							<th>Prata</th>
+							<th>Bronze</th>
+							<th>Total</th>
 							<th>Funções</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="pais" items="${ paises }">
+						<c:forEach var="quadro" items="${ quadros }">
 							<tr>
-								<td>${ pais.id }</td>
-								<td>${ pais.nome }</td>
-								<td>${ pais.populacao }</td>
-								<td>${ pais.area }</td>
+								<td>${ quadro.pais.nome }</td>
+								<td>${ quadro.ano.ano }</td>
+								<c:if test="${quadro.tipo == quadro.ano.inverno}">
+									<td>Inverno</td>
+								</c:if>
+								<c:if test="${quadro.tipo == quadro.ano.verao}">
+									<td>Verão</td>
+								</c:if>
+								<td>${ quadro.ouro }</td>
+								<td>${ quadro.prata }</td>
+								<td>${ quadro.bronze }</td>
+								<td>${ quadro.ouro + quadro.prata + quadro.bronze }</td>
 								<td>
-									<button type="button" class="btn btn-primary">Medalhas</button>
-									<a href="olimpiadaController?command=PaisEditar&id=${ pais.id }" type="button" class="btn btn-warning" >Consultar</a>
-									<a href="olimpiadaController?command=PaisExcluir&id=${ pais.id }" type="button" class="btn btn-danger">Excluir</a>
+									<a href="olimpiadaController?command=MedalhaEditar&pais=${ quadro.pais.id }&ano=${ quadro.ano.ano }&modalidade=${ quadro.modalidade.id }" type="button" class="btn btn-warning">Consultar</a>
+									<a href="olimpiadaController?command=MedalhaExcluir&pais=${ quadro.pais.id }&ano=${ quadro.ano.ano }&modalidade=${ quadro.modalidade.id }" type="button" class="btn btn-danger">Excluir</a>
 								</td>
 							</tr>
 						</c:forEach>

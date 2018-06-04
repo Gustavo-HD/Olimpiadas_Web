@@ -21,11 +21,11 @@
 				<h2>Operação com sucesso!</h2>
 				<p>
 					<div class="alert alert-success" role="alert">
-						<strong>Cadastro realizado com Sucesso!</strong>
+						<strong>Sucesso!</strong> A operação realizada obteve êxito!	
 					</div>
 				</p>
 				<p>
-					<a class="btn btn-success btn-lg" href="#" role="button">Voltar</a>
+					<a class="btn btn-success btn-lg" href="inicio" role="button">Voltar</a>
 				</p>
 			</div>
 		</div>

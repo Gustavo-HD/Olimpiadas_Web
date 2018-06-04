@@ -35,7 +35,7 @@
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<br />
 						<div>
-							<a href="modalidade?acao=Novo" type="button" class="btn btn-success" >Cadastrar Nova Modalidade</a>
+							<a href="olimpiadaController?command=ModalidadeNovo" type="button" class="btn btn-success" >Cadastrar Nova Modalidade</a>
 						</div>
 					</div>
 				</div>
@@ -55,10 +55,15 @@
 							<tr>
 								<td>${ modalidade.id }</td>
 								<td>${ modalidade.nome }</td>
-								<td>${ modalidade.tipo }</td>
+								<c:if test="${ modalidade.tipo eq modalidade.inverno}">
+									<td>Inverno</td>
+								</c:if>
+								<c:if test="${ modalidade.tipo eq modalidade.verao}">
+									<td>Verão</td>
+								</c:if>
 								<td>
-									<a href="modalidades?acao=Editar&id=${ modalidade.id }" type="button" class="btn btn-warning">Consultar</a>
-									<a href="modalidades?acao=Excluir&id=${ modalidade.id }" type="button" class="btn btn-danger">Excluir</a>
+									<a href="olimpiadaController?command=ModalidadeEditar&id=${ modalidade.id }" type="button" class="btn btn-warning">Consultar</a>
+									<a href="olimpiadaController?command=ModalidadeExcluir&id=${ modalidade.id }" type="button" class="btn btn-danger">Excluir</a>
 								</td>
 							</tr>
 						</c:forEach>
